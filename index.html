@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send to @kerge</title>
+    <script>
+        // Detect which coin they want to send
+        const coin = new URLSearchParams(window.location.search).get('coin');
+        
+        const addresses = {
+            BTC: "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq",
+            ETH: "0x27fa47...22941",
+            WAX: "teamgreymass",
+            SOL: "SolanaMainnetAddressHere",
+            DOGE: "DogeAddressHere"
+        };
+        
+        if (coin && addresses[coin.toUpperCase()]) {
+            // Redirect to a page showing the address
+            document.body.innerHTML = `
+                <h1>Send ${coin.toUpperCase()} to @kerge</h1>
+                <p>Use this address:</p>
+                <code style="font-size: 20px; padding: 10px; background: #f0f0f0;">${addresses[coin.toUpperCase()]}</code>
+                <br><br>
+                <button onclick="navigator.clipboard.writeText('${addresses[coin.toUpperCase()]}')">Copy Address</button>
+            `;
+        } else {
+            document.body.innerHTML = `
+                <h1>Send to @kerge</h1>
+                <p>Choose a coin:</p>
+                <ul>
+                    <li><a href="?coin=BTC">Bitcoin (BTC)</a></li>
+                    <li><a href="?coin=ETH">Ethereum (ETH)</a></li>
+                    <li><a href="?coin=WAX">WAX (WAXP)</a></li>
+                    <li><a href="?coin=SOL">Solana (SOL)</a></li>
+                    <li><a href="?coin=DOGE">Dogecoin (DOGE)</a></li>
+                </ul>
+            `;
+        }
+    </script>
+</head>
+<body></body>
+</html>
