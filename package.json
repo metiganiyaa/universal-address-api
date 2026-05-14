@@ -1,0 +1,9 @@
+{
+  "name": "universal-address-api",
+  "version": "1.0.0",
+  "description": "One address for ALL coins - @kerge",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
